@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Sarat | سراة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            transition: font-family 0.3s ease;
+        }
+
+        body.arabic {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body.english {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Language Toggle Button */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid #D4AF37;
+            border-radius: 50px;
+            padding: 8px 12px;
+            display: flex;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .lang-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: none;
+            background: transparent;
+            color: #D4AF37;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: #D4AF37;
+            color: #0A0A0A;
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: relative;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 20px 50px;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 12px;
+            background: #0A0A0A;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            transition: all 0.4s ease;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-cta:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-cta:hover {
+            background: #D4AF37;
+            color: #0A0A0A;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .btn-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        .background-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(15, 52, 96, 0.3) 0%, transparent 50%);
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .icon-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            animation: ripple 2s ease-out infinite;
+        }
+
+        .icon-wrapper svg {
+            width: 40px;
+            height: 40px;
+            color: #0A0A0A;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-method {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .contact-method:hover::before {
+            left: 100%;
+        }
+
+        .contact-method:hover {
+            transform: scale(1.02);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            top: 60%;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            animation-delay: 1s;
+        }
+
+        .shape-3 {
+            bottom: 10%;
+            left: 15%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            border-radius: 41% 59% 41% 59% / 41% 59% 41% 59%;
+            animation-delay: 2s;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .lang-toggle {
+            right: auto;
+            left: 20px;
+        }
+
+        [dir="rtl"] .contact-method {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body class="gradient-bg min-h-screen flex flex-col items-center justify-center p-6 background-pattern english">
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" id="btn-ar" onclick="setLanguage('ar')">ع</button>
+    </div>
+
+    <!-- Floating Shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <!-- Main Content -->
+    <div class="contact-card max-w-2xl w-full mx-auto animate-fadeInUp relative z-10">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+            </div>
+            <h1 class="lang-text text-5xl font-black mb-4 gradient-text" data-en="Contact Sarat"
+                data-ar="التواصل مع سراة"></h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-6 rounded-full"></div>
+            <p class="lang-text text-xl text-gray-700 font-medium"
+                data-en="Choose your preferred way to connect with us" data-ar="اختر الطريقة المناسبة للتواصل معنا"></p>
+        </div>
+
+        <!-- Contact Methods -->
+        <div class="space-y-6 mb-12">
+            <!-- WhatsApp -->
+            <div class="contact-method">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </div>
+                    <div style="text-align: inherit;">
+                        <h3 class="lang-text text-2xl font-bold text-gray-800" data-en="WhatsApp" data-ar="واتساب"></h3>
+                        <p class="lang-text text-gray-600" data-en="Instant messaging & calls"
+                            data-ar="رسائل ومكالمات فورية"></p>
+                    </div>
+                </div>
+                <a href="https://wa.me/96876724361" class="btn-cta w-full block" target="_blank">
+                    <span class="lang-text" data-en="Chat on WhatsApp" data-ar="تواصل عبر واتساب"></span>
+                </a>
+            </div>
+
+            <!-- Phone Call -->
+            <div class="contact-method">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                    </div>
+                    <div style="text-align: inherit;">
+                        <h3 class="lang-text text-2xl font-bold text-gray-800" data-en="Phone Call"
+                            data-ar="مكالمة هاتفية"></h3>
+                        <p class="lang-text text-gray-600" data-en="Direct line to our team" data-ar="خط مباشر لفريقنا">
+                        </p>
+                    </div>
+                </div>
+                <a href="tel:+96876724361" class="btn-cta w-full block">
+                    <span class="lang-text" data-en="Call Now: +968 7672 4361"
+                        data-ar="اتصل الآن: 4361 7672 968+"></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div
+            class="text-center p-6 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-2xl border-2 border-yellow-200">
+            <p class="lang-text text-lg font-semibold text-gray-800 mb-2" data-en="🕐 Available 24/7"
+                data-ar="🕐 متاح على مدار الساعة"></p>
+            <p class="lang-text text-gray-600" data-en="We're here to help you grow your business anytime"
+                data-ar="نحن هنا لمساعدتك في تنمية عملك في أي وقت"></p>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-8">
+            <button><a href="index.html"
+                    class="lang-text text-gray-600 hover:text-yellow-600 transition font-semibold underline inline-block"
+                    data-en="← Back to Home" data-ar="← العودة للرئيسية"></a></button>
+        </div>
+    </div>
+
+    <script>
+        // Language Management
+        let currentLang = 'en';
+
+        function detectBrowserLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            return userLang.startsWith('ar') ? 'ar' : 'en';
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const isArabic = lang === 'ar';
+
+            // Update document direction and body class
+            document.documentElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            document.body.className = 'gradient-bg min-h-screen flex flex-col items-center justify-center p-6 background-pattern ' + (isArabic ? 'arabic' : 'english');
+
+            // Update all text elements
+            document.querySelectorAll('.lang-text').forEach(el => {
+                const text = isArabic ? el.dataset.ar : el.dataset.en;
+                if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.tagName === 'SPAN') {
+                    el.textContent = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+
+            // Update button states
+            document.getElementById('btn-en').classList.toggle('active', !isArabic);
+            document.getElementById('btn-ar').classList.toggle('active', isArabic);
+
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const initialLang = savedLang || detectBrowserLanguage();
+            setLanguage(initialLang);
+        });
+    </script>
+
+</body>
+
+</html>
