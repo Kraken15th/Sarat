@@ -30,24 +30,33 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* Language Toggle Button */
+        /* Language Toggle Button - Responsive */
         .lang-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 10px;
+            right: 10px;
             z-index: 1000;
             background: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(10px);
             border: 2px solid #D4AF37;
             border-radius: 50px;
-            padding: 8px 12px;
+            padding: 6px 10px;
             display: flex;
-            gap: 8px;
+            gap: 6px;
             box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
         }
 
+        @media (min-width: 768px) {
+            .lang-toggle {
+                top: 20px;
+                right: 20px;
+                padding: 8px 12px;
+                gap: 8px;
+            }
+        }
+
         .lang-btn {
-            padding: 8px 20px;
+            padding: 6px 16px;
             border-radius: 50px;
             border: none;
             background: transparent;
@@ -55,6 +64,14 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .lang-btn {
+                padding: 8px 20px;
+                font-size: 16px;
+            }
         }
 
         .lang-btn.active {
@@ -128,7 +145,7 @@
 
         .btn-cta {
             display: inline-block;
-            padding: 16px 32px;
+            padding: 12px 24px;
             font-weight: 700;
             border-radius: 12px;
             background: #0A0A0A;
@@ -139,6 +156,14 @@
             text-decoration: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .btn-cta {
+                padding: 16px 32px;
+                font-size: 16px;
+            }
         }
 
         .btn-cta:hover {
@@ -151,7 +176,7 @@
         .btn-primary {
             background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
             color: #0A0A0A;
-            padding: 16px 40px;
+            padding: 12px 28px;
             border-radius: 12px;
             font-weight: 700;
             border: none;
@@ -160,6 +185,14 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .btn-primary {
+                padding: 16px 40px;
+                font-size: 16px;
+            }
         }
 
         .btn-primary:hover {
@@ -172,8 +205,14 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 30px;
+            padding: 20px;
             transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 30px;
+            }
         }
 
         .card:hover {
@@ -186,9 +225,15 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             border: 2px solid #D4AF37;
             border-radius: 16px;
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .stat-card {
+                padding: 30px;
+            }
         }
 
         .stat-card:hover {
@@ -207,9 +252,15 @@
         .testimonial-card {
             background: white;
             border-radius: 16px;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-card {
+                padding: 30px;
+            }
         }
 
         .testimonial-card:hover {
@@ -220,13 +271,20 @@
         .voice-note {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 50px;
-            padding: 20px 30px;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .voice-note {
+                padding: 20px 30px;
+                gap: 15px;
+            }
         }
 
         .voice-note:hover {
@@ -235,16 +293,25 @@
         }
 
         .play-button {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, #D4AF37, #FFD700);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #0A0A0A;
-            font-size: 20px;
+            font-size: 16px;
             transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .play-button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
         }
 
         .voice-note:hover .play-button {
@@ -258,14 +325,23 @@
         }
 
         .hero-illustration {
-            max-width: 500px;
+            max-width: 100%;
+            height: auto;
             animation: float 3s ease-in-out infinite;
+        }
+
+        @media (min-width: 768px) {
+            .hero-illustration {
+                max-width: 500px;
+            }
         }
 
         .company-logo {
             filter: grayscale(100%);
             opacity: 0.6;
             transition: all 0.3s ease;
+            max-width: 100%;
+            height: auto;
         }
 
         .company-logo:hover {
@@ -285,10 +361,135 @@
             transform: translateY(0);
         }
 
+        /* Responsive Typography */
+        .text-responsive-hero {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 640px) {
+            .text-responsive-hero {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .text-responsive-hero {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .text-responsive-hero {
+                font-size: 4rem;
+            }
+        }
+
+        .text-responsive-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 640px) {
+            .text-responsive-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .text-responsive-subtitle {
+                font-size: 1.875rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .text-responsive-subtitle {
+                font-size: 2.25rem;
+            }
+        }
+
+        .text-responsive-heading {
+            font-size: 1.75rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .text-responsive-heading {
+                font-size: 2.5rem;
+            }
+        }
+
+        .text-responsive-stat {
+            font-size: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .text-responsive-stat {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .text-responsive-stat {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .text-responsive-stat {
+                font-size: 3.75rem;
+            }
+        }
+
+        /* Team member circles responsive */
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+        }
+
+        @media (min-width: 640px) {
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .team-avatar {
+                width: 128px;
+                height: 128px;
+            }
+        }
+
         /* RTL Support */
         [dir="rtl"] .lang-toggle {
             right: auto;
-            left: 20px;
+            left: 10px;
+        }
+
+        @media (min-width: 768px) {
+            [dir="rtl"] .lang-toggle {
+                left: 20px;
+            }
+        }
+
+        /* Calendly responsive */
+        .calendly-container {
+            min-width: 280px;
+            height: 500px;
+        }
+
+        @media (min-width: 640px) {
+            .calendly-container {
+                min-width: 320px;
+                height: 600px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .calendly-container {
+                height: 650px;
+            }
         }
     </style>
 </head>
@@ -302,32 +503,35 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20 px-6 overflow-hidden background-pattern relative">
+    <section
+        class="gradient-bg text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden background-pattern relative">
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 w-72 h-72 bg-yellow-400 rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl"></div>
+            <div class="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-yellow-400 rounded-full filter blur-3xl">
+            </div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400 rounded-full filter blur-3xl">
+            </div>
         </div>
 
         <div class="container mx-auto max-w-6xl relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="animate-fadeInUp" style="text-align: inherit;">
-                    <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight lang-text text-[#0A1A3D]"
+                    <h1 class="text-responsive-hero font-black mb-4 md:mb-6 leading-tight lang-text text-[#0A1A3D]"
                         data-en="ERA Revolution " data-ar="ثورة العصر"></h1>
 
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text lang-text"
+                    <h2 class="text-responsive-subtitle font-bold mb-4 md:mb-6 gradient-text lang-text"
                         data-en="We Help E-commerce & Info Product Businesses Produce Spine-Chilling ROI Via Paid Advertising"
                         data-ar="نساعد الأعمال التجارية الإلكترونية ومنتجات المعلومات على تحقيق عائد استثمار مذهل من خلال الإعلانات المدفوعة">
                     </h2>
-                    <p class="text-lg mb-4 lang-text text-[#0A1A3D]"
+                    <p class="text-base md:text-lg mb-3 md:mb-4 lang-text text-[#0A1A3D]"
                         data-en="Stop wasting time and money on faulty and ineffective ad campaigns."
                         data-ar="توقف عن إضاعة الوقت والمال على حملات إعلانية معيبة وغير فعالة."></p>
-                    <p class="text-lg mb-8 lang-text text-[#0A1A3D]"
+                    <p class="text-base md:text-lg mb-6 md:mb-8 lang-text text-[#0A1A3D]"
                         data-en="It's time to make your ad budget count, scale your business and blow up your sales."
                         data-ar="حان الوقت لجعل ميزانيتك الإعلانية فعالة، وتوسيع عملك وزيادة مبيعاتك."></p>
                     <a href="contact.html" class="btn-primary lang-text" data-en="Speak To Our Team Today"
                         data-ar="تحدث إلى فريقنا اليوم"></a>
                 </div>
-                <div class="flex justify-center">
+                <div class="flex justify-center mt-8 md:mt-0">
                     <img src="assets/Gemini_Generated_Image_6lghpu6lghpu6lgh-removebg-preview.png" alt="Alchemy Wizard"
                         class="hero-illustration">
                 </div>
@@ -336,61 +540,62 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-20 px-6 bg-white">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-12 scroll-reveal">
-                <h2 class="text-4xl font-black mb-4 lang-text" data-en="TOTAL REVENUE GENERATED"
-                    data-ar="إجمالي الإيرادات المحققة"></h2>
-                <p class="text-6xl font-black gradient-text">$63.4 MILLION</p>
+            <div class="text-center mb-8 md:mb-12 scroll-reveal">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-3 md:mb-4 lang-text"
+                    data-en="TOTAL REVENUE GENERATED" data-ar="إجمالي الإيرادات المحققة"></h2>
+                <p class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black gradient-text">$63.4 MILLION</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 <div class="stat-card scroll-reveal">
-                    <p class="text-gray-400 text-sm mb-2 lang-text" data-en="CLIENTS HELPED"
+                    <p class="text-gray-400 text-xs sm:text-sm mb-2 lang-text" data-en="CLIENTS HELPED"
                         data-ar="العملاء الذين ساعدناهم"></p>
-                    <p class="text-5xl font-black gradient-text">97</p>
+                    <p class="text-responsive-stat font-black gradient-text">97</p>
                 </div>
                 <div class="stat-card scroll-reveal">
-                    <p class="text-gray-400 text-sm mb-2 lang-text" data-en="TOTAL AD SPEND"
+                    <p class="text-gray-400 text-xs sm:text-sm mb-2 lang-text" data-en="TOTAL AD SPEND"
                         data-ar="إجمالي الإنفاق الإعلاني"></p>
-                    <p class="text-5xl font-black gradient-text">$14.7M</p>
+                    <p class="text-responsive-stat font-black gradient-text">$14.7M</p>
                 </div>
                 <div class="stat-card scroll-reveal">
-                    <p class="text-gray-400 text-sm mb-2 lang-text" data-en="OFFERS" data-ar="العروض"></p>
-                    <p class="text-5xl font-black gradient-text">1</p>
+                    <p class="text-gray-400 text-xs sm:text-sm mb-2 lang-text" data-en="OFFERS" data-ar="العروض"></p>
+                    <p class="text-responsive-stat font-black gradient-text">1</p>
                 </div>
                 <div class="stat-card scroll-reveal">
-                    <p class="text-gray-400 text-sm mb-2 lang-text" data-en="SERVICES OFFERED"
+                    <p class="text-gray-400 text-xs sm:text-sm mb-2 lang-text" data-en="SERVICES OFFERED"
                         data-ar="الخدمات المقدمة"></p>
-                    <p class="text-5xl font-black gradient-text">1</p>
+                    <p class="text-responsive-stat font-black gradient-text">1</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Philosophy Section -->
-    <section class="py-20 px-6 gradient-bg text-white background-pattern">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 gradient-bg text-white background-pattern">
         <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="scroll-reveal" style="text-align: inherit;">
-                    <h2 class="text-4xl font-black mb-6 lang-text text-[#0A1A3D]" data-en="Our Philosophy"
-                        data-ar="فلسفتنا"></h2>
+                    <h2 class="text-responsive-heading font-black mb-4 md:mb-6 lang-text text-[#0A1A3D]"
+                        data-en="Our Philosophy" data-ar="فلسفتنا"></h2>
                     <div class="section-divider" style="margin-left: 0; margin-right: 0;"></div>
-                    <p class="text-lg text-[#0A1A3D] mb-6 lang-text"
+                    <p class="text-base md:text-lg text-[#0A1A3D] mb-4 md:mb-6 lang-text"
                         data-en="Here at Sarat Solutions, we've worked with the best in the business. When it comes to serving clients, we go above & beyond. We do away with the ineffectiveness & mediocrity that pervades most marketing agencies."
                         data-ar="هنا في Sarat Solutions، عملنا مع الأفضل في المجال. عندما يتعلق الأمر بخدمة العملاء، نذهب إلى أبعد من ذلك. نتخلص من عدم الفعالية والرداءة التي تسود معظم وكالات التسويق.">
                     </p>
-                    <p class="text-lg text-[#0A1A3D] mb-6 lang-text"
+                    <p class="text-base md:text-lg text-[#0A1A3D] mb-4 md:mb-6 lang-text"
                         data-en="We understand that every dollar and every moment counts, so it's bigger than your campaign with your budget. And we are built for a very specific client type."
                         data-ar="نحن ندرك أن كل دولار وكل لحظة مهمة، لذلك فالأمر أكبر من حملتك بميزانيتك. ونحن مصممون لنوع معين من العملاء.">
                     </p>
-                    <p class="text-xl font-bold gradient-text lang-text"
+                    <p class="text-lg md:text-xl font-bold gradient-text lang-text"
                         data-en="Know this: If you're not ready to find out, seriously buckle up, 'cause you're about to find out what your leads discovery unit becomes..."
                         data-ar="اعلم هذا: إذا لم تكن مستعدًا لمعرفة ذلك، فاستعد جيدًا، لأنك على وشك اكتشاف ما ستصبح عليه وحدة اكتشاف العملاء المحتملين...">
                     </p>
                 </div>
                 <div class="scroll-reveal text-center">
-                    <a href="contact.html" class="btn-primary w-full text-center block lang-text"
+                    <a href="contact.html"
+                        class="btn-primary w-full sm:w-auto text-center block sm:inline-block lang-text"
                         data-en="Speak To Our Team Today" data-ar="تحدث إلى فريقنا اليوم"></a>
                 </div>
             </div>
@@ -398,22 +603,24 @@
     </section>
 
     <!-- Services Section -->
-    <section class="py-20 px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
+    <section
+        class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
         <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-5xl font-black mb-6 lang-text" data-en="What we offer" data-ar="ما نقدمه"></h2>
-                <p class="text-6xl font-black gradient-text mb-8 lang-text" data-en="PAID ADVERTISING"
-                    data-ar="الإعلانات المدفوعة"></p>
+            <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4 md:mb-6 lang-text" data-en="What we offer"
+                    data-ar="ما نقدمه"></h2>
+                <p class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black gradient-text mb-6 md:mb-8 lang-text"
+                    data-en="PAID ADVERTISING" data-ar="الإعلانات المدفوعة"></p>
                 <div class="section-divider"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
                 <div class="scroll-reveal" style="text-align: inherit;">
-                    <p class="text-lg mb-6 text-[#D4AF37] lang-text"
+                    <p class="text-base md:text-lg mb-4 md:mb-6 text-[#D4AF37] lang-text"
                         data-en="We do one thing - and we do it with a measured, focus and success rate arguably like nobody else offers that. If you want something 'extra' just to pad our value prop with extra bells & whistles you don't need, then this isn't for you."
                         data-ar="نقوم بشيء واحد - ونقوم به بتركيز ومعدل نجاح لا يضاهى. إذا كنت تريد شيئًا 'إضافيًا' فقط لملء عرض القيمة لدينا بأشياء إضافية لا تحتاجها، فهذا ليس لك.">
                     </p>
-                    <p class="text-lg mb-6 text-[#D4AF37] lang-text"
+                    <p class="text-base md:text-lg mb-6 md:mb-6 text-[#D4AF37] lang-text"
                         data-en="However, if getting results with lead-adds, who can get a direct translation of the results we desire, that's exactly where we DOMINATE. Producing Profit Generating World-class Paid Advertising."
                         data-ar="ومع ذلك، إذا كان الحصول على نتائج مع الإعلانات التي يمكنها الحصول على ترجمة مباشرة للنتائج التي نرغب فيها، فهذا بالضبط حيث نسيطر. إنتاج إعلانات مدفوعة عالمية المستوى تولد الأرباح.">
                     </p>
@@ -422,35 +629,35 @@
                 </div>
 
                 <div class="scroll-reveal" style="text-align: inherit;">
-                    <h3 class="text-2xl font-bold mb-6 gradient-text lang-text" data-en="MASTERY DEMANDS FOCUS ON..."
-                        data-ar="الإتقان يتطلب التركيز على..."></h3>
-                    <p class="text-lg mb-4 text-[#0A1A3D] lang-text"
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 gradient-text lang-text"
+                        data-en="MASTERY DEMANDS FOCUS ON..." data-ar="الإتقان يتطلب التركيز على..."></h3>
+                    <p class="text-base md:text-lg mb-4 text-[#0A1A3D] lang-text"
                         data-en="We don't offer any other services except for paid advertising..."
                         data-ar="نحن لا نقدم أي خدمات أخرى باستثناء الإعلانات المدفوعة..."></p>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl">✗</span>
+                    <ul class="space-y-2 md:space-y-3 text-sm md:text-base">
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-red-500 text-lg md:text-xl flex-shrink-0">✗</span>
                             <span class="lang-text" data-en="WEBDESIGN" data-ar="تصميم الويب"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl">✗</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-red-500 text-lg md:text-xl flex-shrink-0">✗</span>
                             <span class="lang-text" data-en="EMAIL AUTOMATION" data-ar="أتمتة البريد الإلكتروني"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl">✗</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-red-500 text-lg md:text-xl flex-shrink-0">✗</span>
                             <span class="lang-text" data-en="COPYWRITING" data-ar="كتابة المحتوى"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl">✗</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-red-500 text-lg md:text-xl flex-shrink-0">✗</span>
                             <span class="lang-text" data-en="SOCIAL MEDIA MANAGEMENT"
                                 data-ar="إدارة وسائل التواصل الاجتماعي"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl">✗</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-red-500 text-lg md:text-xl flex-shrink-0">✗</span>
                             <span class="lang-text" data-en="INSTAGRAM GROWTH" data-ar="نمو إنستغرام"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl">✗</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-red-500 text-lg md:text-xl flex-shrink-0">✗</span>
                             <span class="lang-text" data-en="PR SERVICE" data-ar="خدمات العلاقات العامة"></span>
                         </li>
                     </ul>
@@ -460,37 +667,37 @@
     </section>
 
     <!-- Companies Section -->
-    <section class="py-20 px-6 bg-white">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div class="container mx-auto max-w-6xl">
-            <h2 class="text-4xl font-black text-center mb-12 scroll-reveal lang-text" data-en="Companies That Trust Us"
-                data-ar="الشركات التي تثق بنا"></h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-center mb-8 md:mb-12 scroll-reveal lang-text"
+                data-en="Companies That Trust Us" data-ar="الشركات التي تثق بنا"></h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 items-center">
                 <div class="flex justify-center scroll-reveal">
                     <img src="https://via.placeholder.com/120x60/f8f9fa/333?text=OURA" alt="OURA"
-                        class="company-logo h-12">
+                        class="company-logo h-8 sm:h-10 md:h-12">
                 </div>
                 <div class="flex justify-center scroll-reveal">
                     <img src="https://via.placeholder.com/120x60/f8f9fa/333?text=AJA+Smart" alt="AJA Smart"
-                        class="company-logo h-12">
+                        class="company-logo h-8 sm:h-10 md:h-12">
                 </div>
                 <div class="flex justify-center scroll-reveal">
                     <img src="https://via.placeholder.com/120x60/f8f9fa/333?text=KEVINROSE" alt="KEVINROSE"
-                        class="company-logo h-12">
+                        class="company-logo h-8 sm:h-10 md:h-12">
                 </div>
                 <div class="flex justify-center scroll-reveal">
                     <img src="https://via.placeholder.com/120x60/f8f9fa/333?text=KIKNN" alt="KIKNN"
-                        class="company-logo h-12">
+                        class="company-logo h-8 sm:h-10 md:h-12">
                 </div>
                 <div class="flex justify-center scroll-reveal">
                     <img src="https://via.placeholder.com/120x60/f8f9fa/333?text=EVARAE" alt="EVARAE"
-                        class="company-logo h-12">
+                        class="company-logo h-8 sm:h-10 md:h-12">
                 </div>
                 <div class="flex justify-center scroll-reveal">
                     <img src="https://via.placeholder.com/120x60/f8f9fa/333?text=GROW+Mgmt" alt="GROW"
-                        class="company-logo h-12">
+                        class="company-logo h-8 sm:h-10 md:h-12">
                 </div>
             </div>
-            <div class="text-center mt-12">
+            <div class="text-center mt-8 md:mt-12">
                 <a href="contact.html" class="btn-cta lang-text" data-en="Contact Us Today"
                     data-ar="اتصل بنا اليوم"></a>
             </div>
@@ -498,49 +705,57 @@
     </section>
 
     <!-- Team Section -->
-    <section class="py-20 px-6 bg-gradient-to-br from-purple-900 via-red-900 to-purple-900 text-white">
+    <section
+        class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-purple-900 via-red-900 to-purple-900 text-white">
         <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="scroll-reveal" style="text-align: inherit;">
-                    <h2 class="text-4xl font-black mb-6 gradient-text lang-text" data-en="Meet The A-Team"
-                        data-ar="تعرف على الفريق المتميز"></h2>
-                    <p class="text-lg text-[#0A1A3D] mb-4 lang-text"
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 md:mb-6 gradient-text lang-text"
+                        data-en="Meet The A-Team" data-ar="تعرف على الفريق المتميز"></h2>
+                    <p class="text-base md:text-lg text-[#0A1A3D] mb-3 md:mb-4 lang-text"
                         data-en="Founded by Imran Gadzhi who's spent the past 5 years building the best caliber of talent."
                         data-ar="أسسها عمران جدزي الذي قضى السنوات الخمس الماضية في بناء أفضل الكفاءات."></p>
-                    <p class="text-lg text-[#0A1A3D] mb-4 lang-text"
+                    <p class="text-base md:text-lg text-[#0A1A3D] mb-3 md:mb-4 lang-text"
                         data-en="With our diverse combining cultures, caliber of creativity & top-notch talent from all over the world. We've hand-picked our team to form one of the most effective & efficient teams in the client acquisition game."
                         data-ar="بثقافاتنا المتنوعة، ومستوى الإبداع والكفاءات الممتازة من جميع أنحاء العالم. اخترنا فريقنا بعناية لتشكيل أحد أكثر الفرق فعالية وكفاءة في مجال جذب العملاء.">
                     </p>
-                    <p class="text-lg text-[#0A1A3D] mb-8 lang-text"
+                    <p class="text-base md:text-lg text-[#0A1A3D] mb-6 md:mb-8 lang-text"
                         data-en="Together, we are unstoppable. Separately, each member of yours is confrontation of their."
                         data-ar="معًا، نحن لا يمكن إيقافنا. بشكل منفصل، كل عضو هو مواجهة لقدراته."></p>
                     <a href="contact.html" class="btn-primary lang-text" data-en="Speak To Our Team Today"
                         data-ar="تحدث إلى فريقنا اليوم"></a>
                 </div>
-                <div class="grid grid-cols-2 gap-6 scroll-reveal">
+                <div class="grid grid-cols-2 gap-4 md:gap-6 scroll-reveal">
                     <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-4">
+                        <div
+                            class="team-avatar bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-3 md:mb-4">
                         </div>
-                        <p class="font-bold">Imran Gadzhi</p>
-                        <p class="text-sm text-[#0A1A3D] lang-text" data-en="Founder" data-ar="المؤسس"></p>
+                        <p class="font-bold text-sm md:text-base">Imran Gadzhi</p>
+                        <p class="text-xs md:text-sm text-[#0A1A3D] lang-text" data-en="Founder" data-ar="المؤسس"></p>
                     </div>
                     <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mx-auto mb-4">
+                        <div
+                            class="team-avatar bg-gradient-to-br from-green-400 to-blue-500 rounded-full mx-auto mb-3 md:mb-4">
                         </div>
-                        <p class="font-bold">Claudio Anderson</p>
-                        <p class="text-sm text-[#0A1A3D] lang-text" data-en="Media Buyer" data-ar="مشتري الإعلانات"></p>
+                        <p class="font-bold text-sm md:text-base">Claudio Anderson</p>
+                        <p class="text-xs md:text-sm text-[#0A1A3D] lang-text" data-en="Media Buyer"
+                            data-ar="مشتري الإعلانات"></p>
                     </div>
                     <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full mx-auto mb-4">
+                        <div
+                            class="team-avatar bg-gradient-to-br from-yellow-400 to-red-500 rounded-full mx-auto mb-3 md:mb-4">
                         </div>
-                        <p class="font-bold">Dany Fernandes</p>
-                        <p class="text-sm text-[#0A1A3D] lang-text" data-en="Strategist" data-ar="استراتيجي"></p>
+                        <p class="font-bold text-sm md:text-base">Dany Fernandes</p>
+                        <p class="text-xs md:text-sm text-[#0A1A3D] lang-text" data-en="Strategist" data-ar="استراتيجي">
+                        </p>
                     </div>
                     <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full mx-auto mb-4">
+                        <div
+                            class="team-avatar bg-gradient-to-br from-pink-400 to-purple-500 rounded-full mx-auto mb-3 md:mb-4">
                         </div>
-                        <p class="font-bold">Luis Berger</p>
-                        <p class="text-sm text-[#0A1A3D] lang-text" data-en="Creative Director" data-ar="مدير إبداعي">
+                        <p class="font-bold text-sm md:text-base">Luis Berger</p>
+                        <p class="text-xs md:text-sm text-[#0A1A3D] lang-text" data-en="Creative Director"
+                            data-ar="مدير إبداعي">
                         </p>
                     </div>
                 </div>
@@ -549,67 +764,76 @@
     </section>
 
     <!-- Customer Testimonials -->
-    <section class="py-20 px-6 bg-gray-50">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gray-50">
         <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl font-black mb-4 lang-text" data-en="What Our Clients Say"
-                    data-ar="ماذا يقول عملاؤنا"></h2>
+            <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-3 md:mb-4 lang-text"
+                    data-en="What Our Clients Say" data-ar="ماذا يقول عملاؤنا"></h2>
                 <div class="section-divider"></div>
-                <p class="text-xl text-gray-600 lang-text" data-en="Real results from real businesses"
+                <p class="text-lg md:text-xl text-gray-600 lang-text" data-en="Real results from real businesses"
                     data-ar="نتائج حقيقية من أعمال حقيقية"></p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                 <div class="testimonial-card scroll-reveal">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full"></div>
+                    <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <div
+                            class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex-shrink-0">
+                        </div>
                         <div style="text-align: inherit;">
-                            <p class="font-bold text-lg lang-text" data-en="Sarah Johnson" data-ar="سارة جونسون"></p>
-                            <p class="text-sm text-gray-500 lang-text" data-en="E-commerce Owner"
+                            <p class="font-bold text-base md:text-lg lang-text" data-en="Sarah Johnson"
+                                data-ar="سارة جونسون"></p>
+                            <p class="text-xs md:text-sm text-gray-500 lang-text" data-en="E-commerce Owner"
                                 data-ar="صاحبة متجر إلكتروني"></p>
                         </div>
                     </div>
-                    <div class="text-yellow-400 mb-3">★★★★★</div>
-                    <p class="text-gray-700 lang-text"
+                    <div class="text-yellow-400 mb-2 md:mb-3 text-sm md:text-base">★★★★★</div>
+                    <p class="text-gray-700 text-sm md:text-base lang-text"
                         data-en="Sarat transformed our advertising strategy. We saw a 5x return on ad spend within 3 months. Their team is professional and results-driven."
                         data-ar="حولت سراة استراتيجيتنا الإعلانية. حققنا عائد 5 أضعاف على الإنفاق الإعلاني خلال 3 أشهر. فريقهم محترف ومدفوع بالنتائج.">
                     </p>
                 </div>
 
                 <div class="testimonial-card scroll-reveal">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full"></div>
+                    <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <div
+                            class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex-shrink-0">
+                        </div>
                         <div style="text-align: inherit;">
-                            <p class="font-bold text-lg lang-text" data-en="Michael Chen" data-ar="مايكل تشين"></p>
-                            <p class="text-sm text-gray-500 lang-text" data-en="Info Product Creator"
+                            <p class="font-bold text-base md:text-lg lang-text" data-en="Michael Chen"
+                                data-ar="مايكل تشين"></p>
+                            <p class="text-xs md:text-sm text-gray-500 lang-text" data-en="Info Product Creator"
                                 data-ar="منشئ منتجات معلوماتية"></p>
                         </div>
                     </div>
-                    <div class="text-yellow-400 mb-3">★★★★★</div>
-                    <p class="text-gray-700 lang-text"
+                    <div class="text-yellow-400 mb-2 md:mb-3 text-sm md:text-base">★★★★★</div>
+                    <p class="text-gray-700 text-sm md:text-base lang-text"
                         data-en="Best decision we made for our business. The ROI speaks for itself. Highly recommend their paid advertising services."
                         data-ar="أفضل قرار اتخذناه لأعمالنا. عائد الاستثمار يتحدث عن نفسه. أوصي بشدة بخدمات الإعلانات المدفوعة الخاصة بهم.">
                     </p>
                 </div>
 
                 <div class="testimonial-card scroll-reveal">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full"></div>
+                    <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <div
+                            class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full flex-shrink-0">
+                        </div>
                         <div style="text-align: inherit;">
-                            <p class="font-bold text-lg lang-text" data-en="Emma Williams" data-ar="إيما ويليامز"></p>
-                            <p class="text-sm text-gray-500 lang-text" data-en="Digital Entrepreneur"
+                            <p class="font-bold text-base md:text-lg lang-text" data-en="Emma Williams"
+                                data-ar="إيما ويليامز"></p>
+                            <p class="text-xs md:text-sm text-gray-500 lang-text" data-en="Digital Entrepreneur"
                                 data-ar="رائدة أعمال رقمية"></p>
                         </div>
                     </div>
-                    <div class="text-yellow-400 mb-3">★★★★★</div>
-                    <p class="text-gray-700 lang-text"
+                    <div class="text-yellow-400 mb-2 md:mb-3 text-sm md:text-base">★★★★★</div>
+                    <p class="text-gray-700 text-sm md:text-base lang-text"
                         data-en="Working with Sarat was a game-changer. They don't just run ads, they build sustainable growth systems."
                         data-ar="العمل مع سراة كان نقطة تحول. إنهم لا يديرون الإعلانات فقط، بل يبنون أنظمة نمو مستدامة.">
                     </p>
                 </div>
             </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-8 md:mt-12">
                 <a href="contact.html" class="btn-cta lang-text" data-en="Join Our Success Stories"
                     data-ar="انضم إلى قصص نجاحنا"></a>
             </div>
@@ -617,58 +841,62 @@
     </section>
 
     <!-- Voice Notes Feedback Section -->
-    <section class="py-20 px-6 bg-white">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div class="container mx-auto max-w-4xl">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl font-black mb-4 lang-text" data-en="Hear From Our Clients"
-                    data-ar="استمع من عملائنا"></h2>
+            <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-3 md:mb-4 lang-text"
+                    data-en="Hear From Our Clients" data-ar="استمع من عملائنا"></h2>
                 <div class="section-divider"></div>
-                <p class="text-xl text-gray-600 lang-text" data-en="Real voice messages from satisfied customers"
-                    data-ar="رسائل صوتية حقيقية من عملاء راضين"></p>
+                <p class="text-lg md:text-xl text-gray-600 lang-text"
+                    data-en="Real voice messages from satisfied customers" data-ar="رسائل صوتية حقيقية من عملاء راضين">
+                </p>
             </div>
 
-            <div class="space-y-6">
+            <div class="space-y-4 md:space-y-6">
                 <div class="voice-note scroll-reveal">
                     <div class="play-button">▶</div>
-                    <div class="flex-1" style="text-align: inherit;">
-                        <p class="font-bold mb-1 lang-text" data-en="David Martinez" data-ar="ديفيد مارتينيز"></p>
-                        <p class="text-sm text-gray-600 lang-text" data-en="CEO, TechStart Solutions"
-                            data-ar="الرئيس التنفيذي، TechStart Solutions"></p>
+                    <div class="flex-1 min-w-0" style="text-align: inherit;">
+                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="David Martinez"
+                            data-ar="ديفيد مارتينيز"></p>
+                        <p class="text-xs md:text-sm text-gray-600 truncate lang-text"
+                            data-en="CEO, TechStart Solutions" data-ar="الرئيس التنفيذي، TechStart Solutions"></p>
                         <div class="bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
                             <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
                         </div>
                     </div>
-                    <span class="text-gray-500 text-sm">1:24</span>
+                    <span class="text-gray-500 text-xs md:text-sm flex-shrink-0">1:24</span>
                 </div>
 
                 <div class="voice-note scroll-reveal">
                     <div class="play-button">▶</div>
-                    <div class="flex-1" style="text-align: inherit;">
-                        <p class="font-bold mb-1 lang-text" data-en="Lisa Thompson" data-ar="ليزا تومبسون"></p>
-                        <p class="text-sm text-gray-600 lang-text" data-en="Founder, BeautyBox Co."
+                    <div class="flex-1 min-w-0" style="text-align: inherit;">
+                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="Lisa Thompson"
+                            data-ar="ليزا تومبسون"></p>
+                        <p class="text-xs md:text-sm text-gray-600 truncate lang-text" data-en="Founder, BeautyBox Co."
                             data-ar="المؤسسة، BeautyBox Co."></p>
                         <div class="bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
                             <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
                         </div>
                     </div>
-                    <span class="text-gray-500 text-sm">2:15</span>
+                    <span class="text-gray-500 text-xs md:text-sm flex-shrink-0">2:15</span>
                 </div>
 
                 <div class="voice-note scroll-reveal">
                     <div class="play-button">▶</div>
-                    <div class="flex-1" style="text-align: inherit;">
-                        <p class="font-bold mb-1 lang-text" data-en="James Rodriguez" data-ar="جيمس رودريغيز"></p>
-                        <p class="text-sm text-gray-600 lang-text" data-en="Owner, Fitness Empire"
+                    <div class="flex-1 min-w-0" style="text-align: inherit;">
+                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="James Rodriguez"
+                            data-ar="جيمس رودريغيز"></p>
+                        <p class="text-xs md:text-sm text-gray-600 truncate lang-text" data-en="Owner, Fitness Empire"
                             data-ar="المالك، Fitness Empire"></p>
                         <div class="bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
                             <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
                         </div>
                     </div>
-                    <span class="text-gray-500 text-sm">1:47</span>
+                    <span class="text-gray-500 text-xs md:text-sm flex-shrink-0">1:47</span>
                 </div>
             </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-8 md:mt-12">
                 <a href="contact.html" class="btn-cta lang-text" data-en="Get Your Results Too"
                     data-ar="احصل على نتائجك أيضًا"></a>
             </div>
@@ -676,42 +904,42 @@
     </section>
 
     <!-- Free Demo Call Section -->
-    <section class="py-20 px-6 bg-gradient-to-br from-gray-100 to-gray-200">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-100 to-gray-200">
         <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="scroll-reveal">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div class="scroll-reveal order-2 md:order-1">
                     <img src="assets/Virtual_Class_Google_Classroom_Header_in_Colorful_Handdrawn_Style__1_-removebg-preview.png"
-                        alt="Strategy Session" class="rounded-2xl shadow-2xl">
+                        alt="Strategy Session" class="rounded-2xl shadow-2xl w-full h-auto">
                 </div>
-                <div class="scroll-reveal" style="text-align: inherit;">
-                    <p class="text-sm font-bold text-purple-600 mb-2 lang-text" data-en="SCHEDULE A CALL WITH DANY"
-                        data-ar="حدد موعد مكالمة مع داني"></p>
-                    <h2 class="text-4xl font-black mb-6 lang-text" data-en="Free 15-Minute Demo Call"
-                        data-ar="مكالمة تجريبية مجانية لمدة 15 دقيقة"></h2>
-                    <p class="text-lg text-gray-700 mb-6 lang-text"
+                <div class="scroll-reveal order-1 md:order-2" style="text-align: inherit;">
+                    <p class="text-xs md:text-sm font-bold text-purple-600 mb-2 lang-text"
+                        data-en="SCHEDULE A CALL WITH DANY" data-ar="حدد موعد مكالمة مع داني"></p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 md:mb-6 lang-text"
+                        data-en="Free 15-Minute Demo Call" data-ar="مكالمة تجريبية مجانية لمدة 15 دقيقة"></h2>
+                    <p class="text-base md:text-lg text-gray-700 mb-4 md:mb-6 lang-text"
                         data-en="By the end of this short call you will have a clear understanding of the next steps you can take for your business to start generating consistent and reliable results online with Funnels & Paid Advertising."
                         data-ar="بنهاية هذه المكالمة القصيرة، سيكون لديك فهم واضح للخطوات التالية التي يمكنك اتخاذها لعملك لبدء تحقيق نتائج متسقة وموثوقة عبر الإنترنت من خلال مسارات التحويل والإعلانات المدفوعة.">
                     </p>
-                    <h3 class="text-2xl font-bold mb-4 gradient-text lang-text"
+                    <h3 class="text-lg md:text-2xl font-bold mb-3 md:mb-4 gradient-text lang-text"
                         data-en="THIS AUDIT CALL IS PERFECT FOR:" data-ar="هذه المكالمة التدقيقية مثالية لـ:"></h3>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 text-xl">✓</span>
+                    <ul class="space-y-2 md:space-y-3 mb-6 md:mb-8 text-sm md:text-base">
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-green-500 text-lg md:text-xl flex-shrink-0">✓</span>
                             <span class="lang-text" data-en="Businesses looking to build or refine their sales funnel"
                                 data-ar="الشركات التي تتطلع إلى بناء أو تحسين مسار المبيعات"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 text-xl">✓</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-green-500 text-lg md:text-xl flex-shrink-0">✓</span>
                             <span class="lang-text" data-en="Companies looking to get the word out with paid ads"
                                 data-ar="الشركات التي تتطلع إلى نشر الكلمة من خلال الإعلانات المدفوعة"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 text-xl">✓</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-green-500 text-lg md:text-xl flex-shrink-0">✓</span>
                             <span class="lang-text" data-en="Entrepreneurs who want to maximize their conversion rates"
                                 data-ar="رواد الأعمال الذين يريدون تعظيم معدلات التحويل"></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 text-xl">✓</span>
+                        <li class="flex items-start gap-2 md:gap-3">
+                            <span class="text-green-500 text-lg md:text-xl flex-shrink-0">✓</span>
                             <span class="lang-text"
                                 data-en="Businesses looking for a reliable agency that can make their company a priority"
                                 data-ar="الشركات التي تبحث عن وكالة موثوقة يمكنها جعل شركتهم أولوية"></span>
@@ -725,32 +953,32 @@
     </section>
 
     <!-- Case Study Section -->
-    <section class="py-20 px-6 bg-gradient-to-br from-pink-50 to-purple-50">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-pink-50 to-purple-50">
         <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 scroll-reveal">
-                <p class="text-sm font-bold text-pink-600 mb-2 lang-text" data-en="FREE CASE STUDY:"
+            <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                <p class="text-xs md:text-sm font-bold text-pink-600 mb-2 lang-text" data-en="FREE CASE STUDY:"
                     data-ar="دراسة حالة مجانية:"></p>
-                <h2 class="text-4xl md:text-5xl font-black mb-4 gradient-text lang-text"
+                <h2 class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black mb-3 md:mb-4 gradient-text lang-text"
                     data-en="How My Agency Is Helping New Breed Info Product & Ecommerce Businesses Scale Aggressively"
                     data-ar="كيف تساعد وكالتي الشركات الجديدة للمنتجات المعلوماتية والتجارة الإلكترونية على التوسع بقوة">
                 </h2>
                 <div class="section-divider"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="scroll-reveal">
                     <img src="https://via.placeholder.com/600x400/f8f9fa/333?text=Case+Study+Video" alt="Case Study"
-                        class="rounded-2xl shadow-2xl">
+                        class="rounded-2xl shadow-2xl w-full h-auto">
                 </div>
                 <div class="scroll-reveal" style="text-align: inherit;">
-                    <p class="text-lg text-gray-700 mb-6 lang-text"
+                    <p class="text-base md:text-lg text-gray-700 mb-4 md:mb-6 lang-text"
                         data-en="Discover the exact systems and strategies we use to help ROI for our clients."
                         data-ar="اكتشف الأنظمة والاستراتيجيات الدقيقة التي نستخدمها لمساعدة عائد الاستثمار لعملائنا.">
                     </p>
-                    <p class="text-lg text-gray-700 mb-6 lang-text"
+                    <p class="text-base md:text-lg text-gray-700 mb-4 md:mb-6 lang-text"
                         data-en="How to achieve spot deal driven-presence & dominate your competition."
                         data-ar="كيفية تحقيق حضور مدفوع بالصفقات الفورية والسيطرة على منافسيك."></p>
-                    <p class="text-lg text-gray-700 mb-8 lang-text"
+                    <p class="text-base md:text-lg text-gray-700 mb-6 md:mb-8 lang-text"
                         data-en="Let's show you how to plug this inside in your sales, that you can start today."
                         data-ar="دعنا نوضح لك كيفية توصيل هذا داخل مبيعاتك، والتي يمكنك البدء بها اليوم."></p>
                     <a href="contact.html" class="btn-primary lang-text" data-en="Watch The Free Case Study"
@@ -761,20 +989,20 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="py-20 px-6 gradient-bg text-white text-center background-pattern">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 gradient-bg text-white text-center background-pattern">
         <div class="container mx-auto max-w-4xl scroll-reveal">
-            <h2 class="text-4xl text-[#0A1A3D] md:text-5xl font-black mb-6 lang-text" data-en="Have A General Inquiry?"
-                data-ar="لديك استفسار عام؟"></h2>
-            <p class="text-xl text-[#0A1A3D] mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0A1A3D] font-black mb-4 md:mb-6 lang-text"
+                data-en="Have A General Inquiry?" data-ar="لديك استفسار عام؟"></h2>
+            <p class="text-base md:text-lg lg:text-xl text-[#0A1A3D] mb-6 md:mb-8 px-4">
                 <span class="lang-text"
                     data-en="If you have a general inquiry and would like to speak to our expert team, you can contact us via email at: "
                     data-ar="إذا كان لديك استفسار عام وترغب في التحدث إلى فريق الخبراء لدينا، يمكنك الاتصال بنا عبر البريد الإلكتروني على: "></span>
-                <span class="gradient-text font-bold">SaratSolutions@gmail.com</span>
+                <span class="gradient-text font-bold break-all">SaratSolutions@gmail.com</span>
             </p>
-            <a href="contact.html" class="btn-primary text-xl lang-text" data-en="Speak To Our Team Today"
-                data-ar="تحدث إلى فريقنا اليوم"></a>
+            <a href="contact.html" class="btn-primary text-base md:text-lg lg:text-xl mb-8 md:mb-12 lang-text"
+                data-en="Speak To Our Team Today" data-ar="تحدث إلى فريقنا اليوم"></a>
 
-            <div style="min-width:320px;height:650px;">
+            <div class="calendly-container w-full">
                 <iframe src="https://calendly.com/YOUR_USERNAME?embed_domain=yourwebsite.com" width="100%" height="100%"
                     frameborder="0"></iframe>
             </div>
@@ -783,18 +1011,19 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12 px-6">
+    <footer class="bg-black text-white py-8 md:py-12 px-4 sm:px-6">
         <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
                 <div style="text-align: inherit;">
-                    <h3 class="text-2xl font-black mb-4 gradient-text">SARAT | سراة</h3>
-                    <p class="text-gray-400 lang-text"
+                    <h3 class="text-xl md:text-2xl font-black mb-3 md:mb-4 gradient-text">SARAT | سراة</h3>
+                    <p class="text-gray-400 text-sm md:text-base lang-text"
                         data-en="ERA Revolution  for E-commerce & Info Product Businesses"
                         data-ar="ثورة العصر للتجارة الإلكترونية وأعمال المنتجات المعلوماتية"></p>
                 </div>
                 <div style="text-align: inherit;">
-                    <h4 class="font-bold mb-4 lang-text" data-en="Quick Links" data-ar="روابط سريعة"></h4>
-                    <ul class="space-y-2 text-gray-400">
+                    <h4 class="font-bold mb-3 md:mb-4 text-sm md:text-base lang-text" data-en="Quick Links"
+                        data-ar="روابط سريعة"></h4>
+                    <ul class="space-y-2 text-gray-400 text-sm md:text-base">
                         <li><a href="#services" class="hover:text-yellow-400 transition lang-text" data-en="Services"
                                 data-ar="الخدمات"></a></li>
                         <li><a href="#team" class="hover:text-yellow-400 transition lang-text" data-en="Team"
@@ -806,15 +1035,17 @@
                     </ul>
                 </div>
                 <div style="text-align: inherit;">
-                    <h4 class="font-bold mb-4 lang-text" data-en="Contact Info" data-ar="معلومات الاتصال"></h4>
-                    <p class="text-gray-400 mb-2">Sarat Solutions</p>
-                    <p class="text-gray-400 mb-2 lang-text" data-en="Helping E-commerce Businesses Scale"
+                    <h4 class="font-bold mb-3 md:mb-4 text-sm md:text-base lang-text" data-en="Contact Info"
+                        data-ar="معلومات الاتصال"></h4>
+                    <p class="text-gray-400 mb-2 text-sm md:text-base">Sarat Solutions</p>
+                    <p class="text-gray-400 mb-2 text-sm md:text-base lang-text"
+                        data-en="Helping E-commerce Businesses Scale"
                         data-ar="مساعدة أعمال التجارة الإلكترونية على التوسع"></p>
-                    <p class="text-gray-400 lang-text" data-en="Email: iag@media.com"
+                    <p class="text-gray-400 text-sm md:text-base lang-text" data-en="Email: iag@media.com"
                         data-ar="البريد الإلكتروني: SaratSolutions@gmail.com"></p>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-800 pt-6 md:pt-8 text-center text-gray-400 text-sm md:text-base">
                 <p class="lang-text" data-en="© 2024 Sarat (Sarat Solutions). All rights reserved."
                     data-ar="© 2024 سراة (Sarat). جميع الحقوق محفوظة."></p>
             </div>
