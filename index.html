@@ -900,50 +900,51 @@
             </div>
 
             <div class="space-y-4 md:space-y-6">
-                <a href="assets/ScreenRecording_10-31-2025 20-11-51_1.mp3" target="_blank"
-                    class="voice-note scroll-reveal">
+                <div class="voice-note scroll-reveal" data-audio-src="assets/client_audio_1.mp3">
                     <div class="play-button">▶</div>
-                    <div class="flex-1 min-w-0" style="text-align: inherit;">
-                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="David Martinez"
-                            data-ar="Client1"></p>
+                    <div class="audio-player-controls flex-1 min-w-0" style="text-align: inherit;">
+                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="" data-ar="تسجيل 1">
+                        </p>
+                        </p>
                         <p class="text-xs md:text-sm text-gray-600 truncate lang-text" data-en="CEO"
                             data-ar="شريك مؤسس"></p>
-                        <div class="bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
-                            <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
+                        <div class="progress-bar-container bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
+                            <div class="progress-bar bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
                         </div>
                     </div>
-                    <span class="text-gray-500 text-xs md:text-sm flex-shrink-0">1:24</span>
-                </a>
+                    <span class="audio-time text-gray-500 text-xs md:text-sm flex-shrink-0"></span>
+                    <audio class="hidden-audio" src="assets/ScreenRecording_10-31-2025 20-11-51_1.mp3"></audio>
+                </div>
 
-                <a href="assets/ScreenRecording_10-31-2025 21-02-34_1.mp3" target="_blank"
-                    class="voice-note scroll-reveal">
+                <div class="voice-note scroll-reveal" data-audio-src="assets/client_audio_2.mp3">
                     <div class="play-button">▶</div>
-                    <div class="flex-1 min-w-0" style="text-align: inherit;">
-                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="Lisa Thompson"
-                            data-ar="Client2"></p>
+                    <div class="audio-player-controls flex-1 min-w-0" style="text-align: inherit;">
+                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="" data-ar="تسجيل 2">
+                        </p>
                         <p class="text-xs md:text-sm text-gray-600 truncate lang-text" data-en="Founder"
-                            data-ar="مؤسس العلامة التجارية"></p>
-                        <div class="bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
-                            <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
+                            data-ar="مؤسس علامة تجارية"></p>
+                        <div class="progress-bar-container bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
+                            <div class="progress-bar bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
                         </div>
                     </div>
-                    <span class="text-gray-500 text-xs md:text-sm flex-shrink-0">2:15</span>
-                </a>
+                    <span class="audio-time text-gray-500 text-xs md:text-sm flex-shrink-0"></span>
+                    <audio class="hidden-audio" src="assets/ScreenRecording_10-31-2025 21-02-34_1.mp3"></audio>
+                </div>
 
-                <a href="assets/ScreenRecording_10-31-2025 21-36-24_1.mp3" target="_blank"
-                    class="voice-note scroll-reveal">
+                <div class="voice-note scroll-reveal" data-audio-src="assets/client_audio_3.mp3">
                     <div class="play-button">▶</div>
-                    <div class="flex-1 min-w-0" style="text-align: inherit;">
-                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="James Rodriguez"
-                            data-ar="CLient3"></p>
+                    <div class="audio-player-controls flex-1 min-w-0" style="text-align: inherit;">
+                        <p class="font-bold mb-1 text-sm md:text-base truncate lang-text" data-en="" data-ar="تسجيل 3">
+                        </p>
                         <p class="text-xs md:text-sm text-gray-600 truncate lang-text" data-en="Owner"
-                            data-ar="مؤسس العلامة التجارية"></p>
-                        <div class="bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
-                            <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
+                            data-ar="مؤسس علامة تجارية"></p>
+                        <div class="progress-bar-container bg-gray-300 h-2 rounded-full mt-2 overflow-hidden">
+                            <div class="progress-bar bg-gradient-to-r from-yellow-400 to-yellow-600 h-full w-0"></div>
                         </div>
                     </div>
-                    <span class="text-gray-500 text-xs md:text-sm flex-shrink-0">1:47</span>
-                </a>
+                    <span class="audio-time text-gray-500 text-xs md:text-sm flex-shrink-0"></span>
+                    <audio class="hidden-audio" src="assets/ScreenRecording_10-31-2025 21-36-24_1.mp3"></audio>
+                </div>
             </div>
         </div>
 
@@ -1169,33 +1170,74 @@
         });
 
         // Voice note player simulation
-        document.querySelectorAll('.voice-note').forEach(note => {
-            const playButton = note.querySelector('.play-button');
-            const progressBar = note.querySelector('.bg-gradient-to-r');
-            let isPlaying = false;
-            let progress = 0;
-            let interval;
+        // Function to format time from seconds to M:SS
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            // Ensure seconds are two digits
+            const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+            return `${minutes}:${formattedSeconds}`;
+        }
 
-            note.addEventListener('click', () => {
-                if (!isPlaying) {
-                    playButton.textContent = '⏸';
-                    isPlaying = true;
-                    interval = setInterval(() => {
-                        progress += 1;
-                        progressBar.style.width = progress + '%';
-                        if (progress >= 100) {
-                            clearInterval(interval);
-                            playButton.textContent = '▶';
-                            isPlaying = false;
-                            progress = 0;
-                            progressBar.style.width = '0%';
-                        }
-                    }, 50);
+        // Real Audio Playback Logic
+        const allAudioPlayers = document.querySelectorAll('.hidden-audio');
+
+        document.querySelectorAll('.voice-note').forEach(note => {
+            const audio = note.querySelector('.hidden-audio');
+            const playButton = note.querySelector('.play-button');
+            const progressBar = note.querySelector('.progress-bar');
+            const timeSpan = note.querySelector('.audio-time');
+
+            // 1. Get Duration and set initial time display
+            // Use 'canplaythrough' for reliable duration after file loads
+            audio.addEventListener('loadedmetadata', () => {
+                // Check if duration is a valid number
+                if (!isNaN(audio.duration) && isFinite(audio.duration)) {
+                    timeSpan.textContent = formatTime(audio.duration);
                 } else {
-                    playButton.textContent = '▶';
-                    isPlaying = false;
-                    clearInterval(interval);
+                    timeSpan.textContent = '...';
                 }
+            });
+
+            // 2. Click Handler
+            note.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Stop all other audio players
+                allAudioPlayers.forEach(otherAudio => {
+                    if (otherAudio !== audio && !otherAudio.paused) {
+                        otherAudio.pause();
+                        // Pause event will handle resetting the icon for other players
+                    }
+                });
+
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+
+            // 3. Update progress bar while playing
+            audio.addEventListener('timeupdate', () => {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+            });
+
+            // 4. Handle end of playback
+            audio.addEventListener('ended', () => {
+                playButton.textContent = '▶';
+                progressBar.style.width = '0%';
+                audio.currentTime = 0; // Reset for next play
+            });
+
+            // 5. Update button icon on pause/play state change
+            audio.addEventListener('pause', () => {
+                playButton.textContent = '▶';
+            });
+
+            audio.addEventListener('play', () => {
+                playButton.textContent = '⏸';
             });
         });
 
